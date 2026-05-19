@@ -20,7 +20,7 @@ export default function PetAbilityCalculator() {
   const [maxAge, setMaxAge] = useState("100");
 
   
-  const rarityStats = {
+  const rarityStats: Record<string, any> = {
     'Common': { interval: 90, minInterval: 30, bonus: 2, maxBonus: 6, weight: 10, crop: 'carrot' },
     'Uncommon': { interval: 85, minInterval: 28, bonus: 3, maxBonus: 8, weight: 12, crop: 'potato' },
     'Rare': { interval: 80, minInterval: 25, bonus: 4, maxBonus: 10, weight: 15, crop: 'wheat' },
@@ -31,7 +31,7 @@ export default function PetAbilityCalculator() {
     'Transcendent': { interval: 55, minInterval: 10, bonus: 15, maxBonus: 100, weight: 100, crop: 'magic bean' }
   };
 
-  const getPetStats = (pet, mutation, targetAge, boost) => {
+  const getPetStats = (pet: any, mutation: any, targetAge: any, boost: any) => {
     if (!pet) return null;
     const base = rarityStats[pet.rarity] || rarityStats['Common'];
     
