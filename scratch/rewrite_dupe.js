@@ -1,4 +1,6 @@
-"use client";
+const fs = require('fs');
+
+const pageContent = `"use client";
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -137,3 +139,7 @@ export default function PetDupeCheckPage() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/app/pet-dupe-check/page.tsx', pageContent);
+console.log('done');

@@ -8,9 +8,9 @@ export default function Home() {
       href: "/pet-ability-calculator",
       badge: "updated" as BadgeType,
       images: [
-        "https://tr.rbxcdn.com/180DAY-e8f5f57f5ae24d0c9aa254123389a218/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-f9695a43b6d9efd7db18e8c7d2812fed/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-2db67656a75bd70bdab7052f0cddbe9c/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-685db07d6eda29bc46a489418f812221/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-f2db33597a379b1d9d35973327e37601/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-4bc3df97456e0cd5a8d18c309fe73c93/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -19,9 +19,9 @@ export default function Home() {
       href: "/pet-weight-calculator",
       badge: "popular" as BadgeType,
       images: [
-        "https://tr.rbxcdn.com/180DAY-e6ed9bd1f68c5327d73e7a40d3d4da1f/150/150/Image/Png/noFilter",
-        `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path><path d="m14.5 12.5 2-2"></path><path d="m11.5 9.5 2-2"></path><path d="m8.5 6.5 2-2"></path><path d="m17.5 15.5 2-2"></path></svg>`,
-        `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>`,
+        "https://tr.rbxcdn.com/180DAY-c4332e7f99f6f0256583a56567fa3510/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-86219acee574e55079c562866ea83480/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-16c729aa563e853c2771f3050400010b/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -30,9 +30,9 @@ export default function Home() {
       href: "/stock",
       badge: "new" as BadgeType,
       images: [
-        "https://tr.rbxcdn.com/180DAY-81fda93ebd4d1088f29ad1a4383937ed/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-4e7d5552ec0e7f6561db9d5625cb46cd/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-3b51aa6169aa429ef0a6fe05c1391c1b/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-e69410449f3c44562eec51c5497e959c/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-a0817e3161f47a6acfa52e9b15fc0f6d/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-da7b3b797aea5330044c1720be1776ce/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -40,9 +40,9 @@ export default function Home() {
       description: "Complete list of all known duplicated pets along with an automatic checking calculator.",
       href: "/pet-dupe-check",
       images: [
-        "https://tr.rbxcdn.com/180DAY-06d0de9e9ef4113326536705ec0f6052/150/150/Image/Png/noFilter",
-        `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>`,
-        `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>`,
+        "https://tr.rbxcdn.com/180DAY-983088fe0db2ad43488838c9289e1398/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-62baf3e08c077db7c2166350f1f6fdb1/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-b3c49655371fe2a773c1ca1203814235/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -50,9 +50,9 @@ export default function Home() {
       description: "Search pets by their abilities and see what each pet does.",
       href: "/pet-ability-search",
       images: [
-        `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle><path d="m16 16-1.9-1.9"></path></svg>`,
-        "https://tr.rbxcdn.com/180DAY-f1c089147321f5b6747c803d926db01d/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-887eaf9a062cc699637323a2b2019f65/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-5edbcdc6c1aafc1c58ab477b6ef28643/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-3acf2b3717566d2a87192b651107101a/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-bb4780c1ebc22a21a66cac20cd1a5238/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -60,9 +60,9 @@ export default function Home() {
       description: "Browse all weather events to find effects and boosts.",
       href: "/weather",
       images: [
-        "https://tr.rbxcdn.com/180DAY-1cbb55c1fadd6f5fde6140aeaaf61eb1/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-b434bad5b4ed75e3e40555971652ae50/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-7030b65c039b00d9d7a083ed681cf5d2/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-878d2c2ebc3ef8c7a46b131b44d34463/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-52ee22a4debd9c671dedde82d2634a16/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-c87b42fc4a1e08855200e01c58acfba6/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -70,9 +70,9 @@ export default function Home() {
       description: "Find how long it takes to level up pets using helper pets like Capybara and Dilophosaurus.",
       href: "/pet-xp-time-calculator",
       images: [
-        "https://tr.rbxcdn.com/180DAY-3b5bc6b09aec74364c0ca39eae452598/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-f49eaf91ec767e80fa1330173462ab78/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-e934aaadc94c3851ad2b9b5b3bbee382/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-f99783a5bc26fc1e4ee440d07b0f951f/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-83b2b86ce053ca6f0b25a25492077b43/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-62dbc4eb73e0a7ed710ba92bda2d210a/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -80,9 +80,9 @@ export default function Home() {
       description: "Calculate egg hatch time with helper pets like Blood Kiwi and Bald Eagle.",
       href: "/egg-hatch-calculator",
       images: [
-        "https://tr.rbxcdn.com/180DAY-f63b3d2717b04989a0e10b4a8d997493/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-fbaec6ff8dd560d1fbe3606355107be2/150/150/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-7239e6d39a9865c73abfe4e213d14341/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-d527ec2b2f3aff03dc1620fbe0bb14d8/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-226a380e9ac7dfd2bd4a7e1380bc7f0a/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-66e7af94955521690b118adfcd4c601c/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -90,9 +90,9 @@ export default function Home() {
       description: "Calculate crop values with every mutation included.",
       href: "/crop-value-calculator",
       images: [
-        "https://tr.rbxcdn.com/180DAY-44a7a346d24abeaccbe4ef470871f965/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-921a9dd51eecd0a8d5eac7e82d06c659/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-a6519ca59a0efc4e487ba5d90429d640/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-325c2ddf7ab6c4ad2f38d0bdf8b4137a/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-ca8410ab32af7f95fc5ad748e04c19b8/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-55452ca5e15d56f38ead46fd414fb97d/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -100,9 +100,9 @@ export default function Home() {
       description: "Ranked list of all pets from best to worst based on their abilities, demand and overall usefulness.",
       href: "/pet-tier-list",
       images: [
-        "https://tr.rbxcdn.com/180DAY-bfe56ed90eb31c9dbeb65f1df1a5b43b/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-299d70df8229cd37cc74b50bed595a65/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-38772c025d3f71b90348969655c7f0f3/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-a6701db9d15f8c2e4a3169417116b45e/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-9ef3c91155d392ebf0cfff949dd503c2/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-616cfc1eea374ee4457cfa4c07f14d38/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -110,9 +110,9 @@ export default function Home() {
       description: "Here are the codes you can redeem now for free in-game rewards.",
       href: "/codes",
       images: [
-        "https://tr.rbxcdn.com/180DAY-9071f177a4d6b1d834ed8774fbebcc36/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-826d3157f73c09135ab474e59319b05a/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-82619b9b67c3fd006c96f92e5688e350/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-88490b833220a4bf9d178a168cc06cb0/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-5afa2a617a574bfac9119cf5f8976315/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-49d4e97e8aec95b7b72037f71094c394/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
     {
@@ -120,9 +120,9 @@ export default function Home() {
       description: "Quick guides for updates, pets, crops, weather, mutations, trading, and progression.",
       href: "/guides",
       images: [
-        "https://tr.rbxcdn.com/180DAY-1e1f637e0f067d230e67c5e1e98bd1a1/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-b9cfbb82fe8cbacd97e679c6a951482a/420/420/Image/Png/noFilter",
-        "https://tr.rbxcdn.com/180DAY-42f86ad0deb1038e8b0e64006bde943e/420/420/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-a15eb03513568d7669111f2c6d312cc7/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-1ce23a14e34e9a831042ab06658a71db/150/150/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-9fa17e24cd437d41ae8b9af91237c8d9/150/150/Image/Png/noFilter",
       ] as [string, string, string],
     },
   ];

@@ -46,18 +46,10 @@ export default function ToolCard({ title, description, href, badge, images }: To
                   <img src={images[0]} alt="" loading="lazy" className="h-20 w-20 object-cover" width="80" height="80" />
                 </div>
                 <div className="col-start-1 row-start-1 z-10 transition-all duration-300 opacity-20 group-hover:opacity-100 group-active:opacity-100 scale-75 group-hover:scale-100 group-active:scale-100 -translate-x-9 group-hover:-translate-x-12 group-active:-translate-x-12 group-hover:-rotate-12 group-active:-rotate-12">
-                  {images[1].startsWith('<svg') ? (
-                    <div dangerouslySetInnerHTML={{ __html: images[1] }} className="h-16 w-16 text-green-500" />
-                  ) : (
-                    <img src={images[1]} alt="" loading="lazy" className="h-20 w-20 object-cover" width="80" height="80" />
-                  )}
+                  <img src={images[1]} alt="" loading="lazy" className="h-20 w-20 object-cover" width="80" height="80" />
                 </div>
                 <div className="col-start-1 row-start-1 z-10 transition-all duration-300 opacity-20 group-hover:opacity-100 group-active:opacity-100 scale-75 group-hover:scale-100 group-active:scale-100 translate-x-9 group-hover:translate-x-12 group-active:translate-x-12 group-hover:rotate-12 group-active:rotate-12">
-                  {images[2].startsWith('<svg') ? (
-                    <div dangerouslySetInnerHTML={{ __html: images[2] }} className="h-16 w-16 text-red-500" />
-                  ) : (
-                    <img src={images[2]} alt="" loading="lazy" className="h-20 w-20 object-cover" width="80" height="80" />
-                  )}
+                  <img src={images[2]} alt="" loading="lazy" className="h-20 w-20 object-cover" width="80" height="80" />
                 </div>
               </div>
             </div>

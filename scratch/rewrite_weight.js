@@ -1,4 +1,6 @@
-"use client";
+const fs = require('fs');
+
+const content = `"use client";
 
 import { useState } from "react";
 
@@ -193,3 +195,7 @@ export default function PetWeightCalculator() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/app/pet-weight-calculator/page.tsx', content);
+console.log('done');
