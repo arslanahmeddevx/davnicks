@@ -31,28 +31,34 @@ export default function PetAbilityCalculator() {
     'Transcendent': { interval: 55, minInterval: 10, bonus: 15, maxBonus: 100, weight: 100, crop: 'magic bean' }
   };
 
-  const getPetStats = (pet: any, mutation: any, targetAge: any, boost: any) => {
+  const [showTable, setShowTable] = useState(false);
+
+  const getPetStats = (pet: any, mutation: any, targetAge: any, boost: any, currentWeight: any, currentAge: any) => {
     if (!pet) return null;
     const base = rarityStats[pet.rarity] || rarityStats['Common'];
     
     // Mutation Modifiers
     let intervalMod = 1;
     let bonusMod = 1;
-    let maxWeightMod = 1;
     
-    if (mutation === 'Glimmering') { intervalMod = 0.9; bonusMod = 1.2; maxWeightMod = 1.1; }
-    else if (mutation === 'Rainbow') { intervalMod = 0.8; bonusMod = 1.5; maxWeightMod = 1.2; }
-    else if (mutation === 'Golden') { intervalMod = 0.85; bonusMod = 1.3; maxWeightMod = 1.15; }
-    else if (mutation !== 'Normal') { intervalMod = 0.95; bonusMod = 1.1; maxWeightMod = 1.05; }
+    if (mutation === 'Glimmering') { intervalMod = 0.9; bonusMod = 1.2; }
+    else if (mutation === 'Rainbow') { intervalMod = 0.8; bonusMod = 1.5; }
+    else if (mutation === 'Golden') { intervalMod = 0.85; bonusMod = 1.3; }
+    else if (mutation !== 'Normal') { intervalMod = 0.95; bonusMod = 1.1; }
     
-    // Weight calculations
-    const hatchWeight = 1;
-    let maxWeight = Math.floor(base.weight * maxWeightMod);
+    // Exact Weight calculations using formula: Wh = (11 * W) / (A + 10)
+    const parsedW = parseFloat(currentWeight) || 0;
+    const parsedA = parseFloat(currentAge) || 0;
+    const hatchWeight = (11 * parsedW) / (parsedA + 10);
+    
+    // W_target = (Wh / 11) * (A_target + 10)
+    const parsedTargetAge = parseFloat(targetAge) || 100;
+    let maxWeight = (hatchWeight / 11) * (parsedTargetAge + 10);
+    
     if (boost && boost.name === 'Grandmaster Sprinkler') maxWeight += 4;
     
     // Abilities calculations
-    const parsedAge = parseInt(targetAge) || 0;
-    const ageFactor = Math.min(parsedAge, 100) / 100;
+    const ageFactor = Math.min(parsedTargetAge, 100) / 100;
     
     let currentInterval = base.interval - ((base.interval - base.minInterval) * ageFactor);
     currentInterval *= intervalMod;
@@ -65,16 +71,16 @@ export default function PetAbilityCalculator() {
     currentBonus *= bonusMod;
     
     return {
-      hatchWeight,
-      maxWeight,
+      hatchWeight: hatchWeight.toFixed(2),
+      maxWeight: maxWeight.toFixed(2),
       interval: currentInterval.toFixed(1),
       bonus: Math.floor(currentBonus),
       crop: base.crop
     };
   };
 
-  const statsForMaxAge = useMemo(() => getPetStats(selectedPet, selectedMutation, maxAge || 100, selectedBoost), [selectedPet, selectedMutation, maxAge, selectedBoost]);
-  const statsForCurrentAge = useMemo(() => getPetStats(selectedPet, selectedMutation, age || 1, selectedBoost), [selectedPet, selectedMutation, age, selectedBoost]);
+  const statsForMaxAge = useMemo(() => getPetStats(selectedPet, selectedMutation, maxAge || 100, selectedBoost, weight, age), [selectedPet, selectedMutation, maxAge, selectedBoost, weight, age]);
+  const statsForCurrentAge = useMemo(() => getPetStats(selectedPet, selectedMutation, age || 1, selectedBoost, weight, age), [selectedPet, selectedMutation, age, selectedBoost, weight, age]);
 
   const filteredPets = useMemo(() => {
     let result = [...pets];
@@ -441,9 +447,41 @@ export default function PetAbilityCalculator() {
               </div>
 
               {/* Show Table button */}
-              <button className="absolute bottom-6 right-6 bg-[#1a231e] border border-[#2a362e] text-gray-300 hover:text-white text-xs py-2 px-4 rounded transition-colors">
-                Show table
+              <button 
+                onClick={() => setShowTable(!showTable)}
+                className="absolute bottom-6 right-6 bg-[#1a231e] border border-[#2a362e] text-gray-300 hover:text-white text-xs py-2 px-4 rounded transition-colors"
+              >
+                {showTable ? "Hide table" : "Show table"}
               </button>
+
+              {/* Weight Predictions Table */}
+              {showTable && statsForMaxAge && (
+                <div className="mt-12 w-full animate-fade-in">
+                  <h3 className="text-xl font-bold text-white mb-4">Precise Weight Predictions (Ages 1-100)</h3>
+                  <div className="max-h-[400px] overflow-y-auto custom-scrollbar bg-[#151c18] border border-[#2a362e] rounded-lg p-2">
+                    <table className="w-full text-left text-sm text-gray-300">
+                      <thead className="sticky top-0 bg-[#151c18] text-white">
+                        <tr>
+                          <th className="py-3 px-4 border-b border-[#2a362e]">Age</th>
+                          <th className="py-3 px-4 border-b border-[#2a362e]">Weight (kg)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Array.from({ length: 100 }, (_, i) => i + 1).map((predictAge) => {
+                          const wh = parseFloat(statsForMaxAge.hatchWeight);
+                          const weightPrediction = (wh / 11) * (predictAge + 10);
+                          return (
+                            <tr key={predictAge} className="hover:bg-[#1a231e] transition-colors border-b border-[#2a362e] last:border-0">
+                              <td className="py-2 px-4 font-medium">{predictAge}</td>
+                              <td className="py-2 px-4 text-green-400">{weightPrediction.toFixed(2)} kg</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <div className="text-green-500 font-bold mb-8 text-left">
