@@ -23,10 +23,55 @@ export default function PetXPTimeCalculator() {
   const [activeBoosts, setActiveBoosts] = useState<string[]>([]);
   const [additionalXp, setAdditionalXp] = useState("0");
   const [bonusXp, setBonusXp] = useState("0");
-  const [selectedHelpers, setSelectedHelpers] = useState<string[]>(helperPets.map(p => p.name));
+  const [selectedHelpers, setSelectedHelpers] = useState<string[]>([]);
 
   const toggleBoost = (boost: string) => {
     setActiveBoosts(prev => prev.includes(boost) ? prev.filter(b => b !== boost) : [...prev, boost]);
+  };
+
+  const toggleHelper = (helper: string) => {
+    setSelectedHelpers(prev => prev.includes(helper) ? prev.filter(h => h !== helper) : [...prev, helper]);
+  };
+
+  // Calculation Logic
+  const currentAge = Math.max(1, parseInt(petAge) || 1);
+  const targetAge = Math.max(currentAge, parseInt(desiredPetAge) || 2);
+  
+  let totalXpRequired = 0;
+  for (let n = currentAge + 1; n <= targetAge; n++) {
+    totalXpRequired += Math.floor(20 * Math.pow(n, 2.02));
+  }
+
+  // XP Rate calculation
+  let baseRate = 0.5; // Base passive XP
+  let helperXp = selectedHelpers.length * 0.1; // 0.1 XP/sec per helper
+  let flatAdditional = parseFloat(additionalXp) || 0;
+  
+  let flatXpRate = baseRate + helperXp + flatAdditional;
+  
+  // Percentage bonuses
+  let bonusMultiplier = 1.0 + ((parseFloat(bonusXp) || 0) / 100);
+  if (activeBoosts.includes("Small Treat")) bonusMultiplier += 0.2;
+  if (activeBoosts.includes("Medium Treat")) bonusMultiplier += 0.5;
+  
+  let finalXpRate = flatXpRate * bonusMultiplier;
+  let timeInSeconds = finalXpRate > 0 ? totalXpRequired / finalXpRate : 0;
+
+  const formatTime = (totalSeconds: number) => {
+    if (totalSeconds === 0) return "0s";
+    if (totalSeconds === Infinity) return "Never";
+    
+    const d = Math.floor(totalSeconds / 86400);
+    const h = Math.floor((totalSeconds % 86400) / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = Math.floor(totalSeconds % 60);
+    
+    let parts = [];
+    if (d > 0) parts.push(`${d}d`);
+    if (h > 0) parts.push(`${h}h`);
+    if (m > 0) parts.push(`${m}m`);
+    if (s > 0 || parts.length === 0) parts.push(`${s}s`);
+    return parts.join(" ");
   };
 
   return (
@@ -74,8 +119,8 @@ export default function PetXPTimeCalculator() {
                   : "border-[#1a231d] bg-[#0a0f0c] hover:border-[#2a362e]"
               }`}
             >
-              <img src={smallTreatIcon} className="w-12 h-12 object-contain filter grayscale invert" alt="Small Treat" />
-              <span className="text-sm text-gray-300">Small Treat</span>
+              <img src={smallTreatIcon} className="w-12 h-12 object-contain filter grayscale invert opacity-70" alt="Small Treat" />
+              <span className="text-sm text-gray-300">Small Treat (+20%)</span>
             </button>
             <button 
               onClick={() => toggleBoost("Medium Treat")}
@@ -85,15 +130,15 @@ export default function PetXPTimeCalculator() {
                   : "border-[#1a231d] bg-[#0a0f0c] hover:border-[#2a362e]"
               }`}
             >
-              <img src={mediumTreatIcon} className="w-12 h-12 object-contain" alt="Medium Treat" />
-              <span className="text-sm text-gray-300">Medium Treat</span>
+              <img src={mediumTreatIcon} className="w-12 h-12 object-contain opacity-80" alt="Medium Treat" />
+              <span className="text-sm text-gray-300">Medium Treat (+50%)</span>
             </button>
           </div>
         </div>
 
         {/* Additional XP */}
         <div className="space-y-3">
-          <label className="text-sm text-gray-400 block">Additional XP/sec.</label>
+          <label className="text-sm text-gray-400 block">Additional XP/sec. (Flat)</label>
           <input 
             type="number" 
             value={additionalXp} 
@@ -115,46 +160,46 @@ export default function PetXPTimeCalculator() {
 
         {/* Helper Pets */}
         <div className="space-y-3">
-          <label className="text-sm text-gray-400 block">Helper Pets</label>
+          <label className="text-sm text-gray-400 block">Helper Pets (+0.1 XP/s each)</label>
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
             {helperPets.map((pet) => (
-              <div
+              <button
                 key={pet.name}
-                className="flex flex-col items-center justify-center p-3 rounded-sm border border-[#1a231d] bg-[#0a0f0c] min-w-[90px] h-[90px]"
+                onClick={() => toggleHelper(pet.name)}
+                className={`flex flex-col items-center justify-center p-3 rounded-sm border min-w-[90px] h-[90px] cursor-pointer transition-colors ${
+                  selectedHelpers.includes(pet.name) 
+                    ? 'border-green-800 bg-[#0c1611]' 
+                    : 'border-[#1a231d] bg-[#0a0f0c] hover:border-[#2a362e]'
+                }`}
               >
                 <img src={pet.icon} alt={pet.name} className="w-8 h-8 object-contain mb-2" />
                 <span className="text-[10px] text-gray-300 text-center leading-tight">{pet.name}</span>
-              </div>
+              </button>
             ))}
           </div>
-          <button className="w-full bg-[#0a0f0c] border border-[#1a231d] rounded-sm py-2.5 text-gray-400 text-sm hover:bg-[#151c18] transition-colors mt-2">
-            Add
-          </button>
         </div>
 
         {/* Result Box */}
         <div className="mt-10 bg-[#061e0e] border border-[#0d421d] rounded-sm p-8 text-center flex flex-col items-center">
           <div className="text-xs text-gray-400 mb-2">Result</div>
           <div className="text-xl font-bold text-green-500 mb-2">
-            0.50 XP/sec
+            {finalXpRate.toFixed(2)} XP/sec
           </div>
           <div className="text-xl font-medium text-white mb-4">
-            40s
+            {formatTime(timeInSeconds)}
           </div>
           <div className="text-xs text-green-500 font-medium mb-1">
-            Helper Pets (0): 0.00 XP/sec
+            Helper Pets ({selectedHelpers.length}): {helperXp.toFixed(2)} XP/sec
           </div>
           <div className="text-xs text-green-500 font-medium mb-1">
-            20 XP Required
+            {totalXpRequired.toLocaleString()} XP Required
           </div>
           <div className="text-xs text-gray-400 mb-6">
-            Age 1 → 2
+            *This assumes constant leveling without interruptions.
           </div>
           
-          <button className="border border-[#14452a] hover:bg-[#14452a]/50 bg-[#0b2818] text-green-400 rounded-full px-5 py-2 text-xs inline-flex items-center gap-2 transition-colors">
-            <span className="text-red-500 text-base">🍓</span> 
-            www.growagardencalculator.ca 
-            <Copy className="w-3.5 h-3.5 ml-1" />
+          <button className="flex items-center gap-2 bg-[#1a231d] border border-[#2a362e] text-white px-4 py-2 rounded-sm text-sm hover:bg-[#25302a] transition-colors">
+            <Copy className="w-4 h-4" /> Copy Link
           </button>
         </div>
         
