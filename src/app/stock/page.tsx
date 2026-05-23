@@ -161,11 +161,11 @@ export default function StockPage() {
       )}
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#1a1a1a] border border-[#1a1a1a] rounded-sm overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[10px]">
         {stockItems.map((item, idx) => {
           const inStock = item.stock > 0;
           return (
-            <div key={idx} className={`flex items-center justify-between p-5 bg-[#0a0a0a] hover:bg-[#111111] transition-colors border ${inStock ? item.border : 'border-transparent'}`}>
+            <div key={idx} className={`flex items-center justify-between p-5 bg-[#0a0a0a] hover:bg-[#111111] transition-colors border rounded-sm ${inStock ? item.border : 'border-[#1a1a1a]'}`}>
               <div className="flex items-center gap-5">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img src={item.img} alt={item.name} className="w-full h-full object-contain filter drop-shadow-md" />
