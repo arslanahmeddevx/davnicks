@@ -36,12 +36,195 @@ const cropTraits = [
 ];
 
 const mutations = [
-  { name: "Abyssal", mult: "x240" }, { name: "Acidic", mult: "x15" }, { name: "Affluent", mult: "x70" }, { name: "Alienated", mult: "x25" }, { name: "Alienlike", mult: "x100" }, { name: "Amber", mult: "x10" }, { name: "AncientAmber", mult: "x50" }, { name: "Arctic", mult: "x12" },
-  { name: "Arid", mult: "x6" }, { name: "Aromatic", mult: "x3" }, { name: "AscendedChakra", mult: "x230" }, { name: "Ash", mult: "x4" }, { name: "Astral", mult: "x365" }, { name: "Aurora", mult: "x90" }, { name: "Azure", mult: "x75" }, { name: "Batty", mult: "x45" },
-  { name: "Beanbound", mult: "x100" }, { name: "Biohazard", mult: "x157" }, { name: "Blackout", mult: "x95" }, { name: "Blazing", mult: "x52" }, { name: "Blight", mult: "x8" }, { name: "Blitzshock", mult: "x50" }, { name: "Blizzard", mult: "x40" }, { name: "Bloodlit", mult: "x4" },
-  { name: "Bloom", mult: "x8" }, { name: "Blossoming", mult: "x50" }, { name: "Boil", mult: "x15" }, { name: "Brainrot", mult: "x100" }, { name: "Brewed", mult: "x7" }, { name: "Burnt", mult: "x4" }, { name: "Candy", mult: "x10" }, { name: "Celestial", mult: "x120" },
-  { name: "Ceramic", mult: "x32" }, { name: "Chakra", mult: "x15" }, { name: "Charcoal", mult: "x6" }, { name: "Chilled", mult: "x2" }, { name: "Choc", mult: "x2" }, { name: "Clay", mult: "x5" }, { name: "Clockwork", mult: "x15" }, { name: "Cloudtouched", mult: "x5" },
-  { name: "Coin", mult: "x3" }, { name: "Confection", mult: "x18" }, { name: "Contagion", mult: "x205" }, { name: "Cooked", mult: "x10" }, { name: "Corrosive", mult: "x40" }, { name: "Corrupt", mult: "x20" }, { name: "CorruptChakra", mult: "x15" }, { name: "CorruptFoxfireChakra", mult: "x90" },
+  { name: "Abyssal", mult: "x240" },
+  { name: "Acidic", mult: "x15" },
+  { name: "Affluent", mult: "x70" },
+  { name: "Alienated", mult: "x25" },
+  { name: "Alienlike", mult: "x100" },
+  { name: "Amber", mult: "x10" },
+  { name: "AncientAmber", mult: "x50" },
+  { name: "Arctic", mult: "x12" },
+  { name: "Arid", mult: "x6" },
+  { name: "Aromatic", mult: "x3" },
+  { name: "AscendedChakra", mult: "x230" },
+  { name: "Ash", mult: "x4" },
+  { name: "Astral", mult: "x365" },
+  { name: "Aurora", mult: "x90" },
+  { name: "Azure", mult: "x75" },
+  { name: "Batty", mult: "x45" },
+  { name: "Beanbound", mult: "x100" },
+  { name: "Biohazard", mult: "x157" },
+  { name: "Blackout", mult: "x95" },
+  { name: "Blazing", mult: "x52" },
+  { name: "Blight", mult: "x8" },
+  { name: "Blitzshock", mult: "x50" },
+  { name: "Blizzard", mult: "x40" },
+  { name: "Bloodlit", mult: "x4" },
+  { name: "Bloom", mult: "x8" },
+  { name: "Blossoming", mult: "x50" },
+  { name: "Boil", mult: "x15" },
+  { name: "Brainrot", mult: "x100" },
+  { name: "Brewed", mult: "x7" },
+  { name: "Burnt", mult: "x4" },
+  { name: "Candy", mult: "x10" },
+  { name: "Celestial", mult: "x120" },
+  { name: "Ceramic", mult: "x32" },
+  { name: "Chakra", mult: "x15" },
+  { name: "Charcoal", mult: "x6" },
+  { name: "Chilled", mult: "x2" },
+  { name: "Choc", mult: "x2" },
+  { name: "Clay", mult: "x5" },
+  { name: "Clockwork", mult: "x15" },
+  { name: "Cloudtouched", mult: "x5" },
+  { name: "Coin", mult: "x3" },
+  { name: "Confection", mult: "x18" },
+  { name: "Contagion", mult: "x205" },
+  { name: "Cooked", mult: "x10" },
+  { name: "Corrosive", mult: "x40" },
+  { name: "Corrupt", mult: "x20" },
+  { name: "CorruptChakra", mult: "x15" },
+  { name: "CorruptFoxfireChakra", mult: "x90" },
+  { name: "Cosmic", mult: "x240" },
+  { name: "Cracked", mult: "x4" },
+  { name: "Crystalized", mult: "x25" },
+  { name: "Cute", mult: "x20" },
+  { name: "Cyclonic", mult: "x50" },
+  { name: "Dawnbound", mult: "x150" },
+  { name: "Desolate", mult: "x50" },
+  { name: "Disco", mult: "x125" },
+  { name: "Drenched", mult: "x5" },
+  { name: "Eclipsed", mult: "x20" },
+  { name: "Eggnog", mult: "x8" },
+  { name: "Enchanted", mult: "x50" },
+  { name: "Enlightened", mult: "x35" },
+  { name: "Extraterrestrial", mult: "x130" },
+  { name: "Fall", mult: "x4" },
+  { name: "Festive", mult: "x24" },
+  { name: "Fiery", mult: "x2" },
+  { name: "Fierywork", mult: "x30" },
+  { name: "Firework", mult: "x26" },
+  { name: "Flaming", mult: "x25" },
+  { name: "Floral", mult: "x25" },
+  { name: "Fortune", mult: "x50" },
+  { name: "FoxfireChakra", mult: "x90" },
+  { name: "Fractured", mult: "x92" },
+  { name: "Fried", mult: "x8" },
+  { name: "Friendbound", mult: "x70" },
+  { name: "Frozen", mult: "x10" },
+  { name: "Galactic", mult: "x120" },
+  { name: "Gale", mult: "x25" },
+  { name: "Geode", mult: "x5" },
+  { name: "Ghostly", mult: "x25" },
+  { name: "Gilded", mult: "x15" },
+  { name: "Glacial", mult: "x25" },
+  { name: "Glimmering", mult: "x2" },
+  { name: "Glitched", mult: "x85" },
+  { name: "Gloom", mult: "x30" },
+  { name: "Glossy", mult: "x30" },
+  { name: "Gnomed", mult: "x15" },
+  { name: "Goldsparkle", mult: "x500" },
+  { name: "Gourmet", mult: "x37" },
+  { name: "Graceful", mult: "x77" },
+  { name: "Grim", mult: "x170" },
+  { name: "Gummy", mult: "x4" },
+  { name: "HarmonisedChakra", mult: "x35" },
+  { name: "HarmonisedFoxfireChakra", mult: "x190" },
+  { name: "Haze", mult: "x6" },
+  { name: "Heartbound", mult: "x100" },
+  { name: "Heartstruck", mult: "x3" },
+  { name: "Heavenly", mult: "x5" },
+  { name: "Honeygem", mult: "x33" },
+  { name: "HoneyGlazed", mult: "x5" },
+  { name: "Infected", mult: "x75" },
+  { name: "Infernal", mult: "x180" },
+  { name: "Jackpot", mult: "x15" },
+  { name: "Jellygem", mult: "x25" },
+  { name: "Junkshock", mult: "x45" },
+  { name: "Leeched", mult: "x70" },
+  { name: "Lightcycle", mult: "x50" },
+  { name: "Luck", mult: "x3" },
+  { name: "Luminous", mult: "x50" },
+  { name: "Lush", mult: "x3" },
+  { name: "Maelstrom", mult: "x100" },
+  { name: "Meatball", mult: "x3" },
+  { name: "Meteoric", mult: "x125" },
+  { name: "MindBender", mult: "x175" },
+  { name: "Mineral", mult: "x18" },
+  { name: "Mirage", mult: "x25" },
+  { name: "Moist", mult: "x3" },
+  { name: "Molten", mult: "x25" },
+  { name: "Monsoon", mult: "x50" },
+  { name: "Moonbled", mult: "x25" },
+  { name: "Moonlit", mult: "x2" },
+  { name: "Necrotic", mult: "x8" },
+  { name: "Nocturnal", mult: "x4" },
+  { name: "Oil", mult: "x15" },
+  { name: "OilBoil", mult: "x30" },
+  { name: "OldAmber", mult: "x20" },
+  { name: "Opulent", mult: "x5" },
+  { name: "Ornamented", mult: "x10" },
+  { name: "Paradisal", mult: "x100" },
+  { name: "Pasta", mult: "x3" },
+  { name: "Peppermint", mult: "x4" },
+  { name: "Pestilent", mult: "x8" },
+  { name: "Plagued", mult: "x102" },
+  { name: "Plasma", mult: "x5" },
+  { name: "Pollinated", mult: "x3" },
+  { name: "Pollinated_Fair", mult: "x1" },
+  { name: "Pollinated_Godly", mult: "x1" },
+  { name: "Pollinated_Good", mult: "x1" },
+  { name: "Pollinated_Poor", mult: "x1" },
+  { name: "Radioactive", mult: "x55" },
+  { name: "Riptide", mult: "x80" },
+  { name: "Rot", mult: "x8" },
+  { name: "Sandy", mult: "x3" },
+  { name: "Sauce", mult: "x3" },
+  { name: "Severed", mult: "x40" },
+  { name: "Shadowbound", mult: "x70" },
+  { name: "Shocked", mult: "x100" },
+  { name: "Sizzled", mult: "x18" },
+  { name: "Slashbound", mult: "x95" },
+  { name: "Sleepy", mult: "x3" },
+  { name: "Sliced", mult: "x50" },
+  { name: "Smoldering", mult: "x66" },
+  { name: "Snowtouched", mult: "x5" },
+  { name: "Snowy", mult: "x2" },
+  { name: "Spaghetti", mult: "x15" },
+  { name: "Spooky", mult: "x8" },
+  { name: "Spotty", mult: "x33" },
+  { name: "Stampede", mult: "x50" },
+  { name: "Static", mult: "x8" },
+  { name: "Stormbound", mult: "x270" },
+  { name: "Stormcharged", mult: "x180" },
+  { name: "Subzero", mult: "x40" },
+  { name: "Sundried", mult: "x85" },
+  { name: "SunScorched", mult: "x32" },
+  { name: "Supernatural", mult: "x37" },
+  { name: "Tempered", mult: "x6" },
+  { name: "Tempestuous", mult: "x12" },
+  { name: "Terran", mult: "x75" },
+  { name: "Touchdown", mult: "x105" },
+  { name: "Toxic", mult: "x15" },
+  { name: "Tranquil", mult: "x20" },
+  { name: "Twilight", mult: "x4" },
+  { name: "Twisted", mult: "x5" },
+  { name: "Typhoon", mult: "x30" },
+  { name: "Umbral", mult: "x30" },
+  { name: "Vamp", mult: "x3" },
+  { name: "Verdant", mult: "x4" },
+  { name: "Voidtouched", mult: "x135" },
+  { name: "Volcanic", mult: "x25" },
+  { name: "Warped", mult: "x75" },
+  { name: "Webbed", mult: "x8" },
+  { name: "Wet", mult: "x2" },
+  { name: "Whalebound", mult: "x50" },
+  { name: "Whimsical", mult: "x6" },
+  { name: "Wildfast", mult: "x5" },
+  { name: "Wilted", mult: "x10" },
+  { name: "Wiltproof", mult: "x4" },
+  { name: "Windstruck", mult: "x2" },
+  { name: "Withered", mult: "x20" },
+  { name: "Zombified", mult: "x1" }
 ];
 
 const variants = [
@@ -63,10 +246,39 @@ export default function CropValueCalculator() {
   const [weight, setWeight] = useState("0.275");
   
   const [selectedMutations, setSelectedMutations] = useState<string[]>([]);
+  const [mutSortBy, setMutSortBy] = useState("A-Z");
+  const [mutSortAsc, setMutSortAsc] = useState(true);
+  const [mutLimitDisabled, setMutLimitDisabled] = useState(false);
+  const [showMutations, setShowMutations] = useState(true);
 
   const toggleMutation = (mut: string) => {
-    setSelectedMutations(prev => prev.includes(mut) ? prev.filter(m => m !== mut) : [...prev, mut]);
+    setSelectedMutations(prev => {
+      if (prev.includes(mut)) return prev.filter(m => m !== mut);
+      if (!mutLimitDisabled && prev.length >= 3) return prev;
+      return [...prev, mut];
+    });
   };
+
+  const handleMax = () => {
+    const sorted = [...mutations].sort((a, b) => parseFloat(b.mult.slice(1)) - parseFloat(a.mult.slice(1)));
+    if (mutLimitDisabled) {
+       setSelectedMutations(sorted.map(m => m.name));
+    } else {
+       setSelectedMutations(sorted.slice(0, 3).map(m => m.name));
+    }
+  };
+  
+  const sortedAndFilteredMutations = mutations
+    .filter(m => m.name.toLowerCase().includes(mutSearch.toLowerCase()))
+    .sort((a, b) => {
+      let cmp = 0;
+      if (mutSortBy === "A-Z") {
+        cmp = a.name.localeCompare(b.name);
+      } else {
+        cmp = parseFloat(a.mult.slice(1)) - parseFloat(b.mult.slice(1));
+      }
+      return mutSortAsc ? cmp : -cmp;
+    });
 
   const toggleTrait = (trait: string) => {
     setSelectedTraits(prev => prev.includes(trait) ? prev.filter(t => t !== trait) : [...prev, trait]);
