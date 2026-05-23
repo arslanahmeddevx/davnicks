@@ -18,8 +18,8 @@ export default function PetDupeCheckPage() {
 
     if (isNaN(w) || isNaN(a)) return { exactMatches: [], nearMatches: [] };
 
-    const exactMatches = [];
-    const nearMatches = [];
+    const exactMatches: typeof dupedPets = [];
+    const nearMatches: typeof dupedPets = [];
 
     dupedPets.forEach(pet => {
       if (pet.age === a) {
